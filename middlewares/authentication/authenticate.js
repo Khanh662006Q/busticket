@@ -5,6 +5,7 @@ const authenticate = (req, res, next) => {
     try {
         const decode = jwt.verify(token, 'your_secret_key');
         if (decode) {
+            req.user = decode; // Attach the decoded user information to the request object
             return next();
         }
         else {

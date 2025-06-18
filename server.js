@@ -4,11 +4,14 @@
 // yarn add bcryptjs 
 // yarn add jsonwebtoken
 // yarn add multer
+// yarn add mkdirp
+// yarn add gravatar-url
+// yarn add express-fingerprint
 // sequelize init
 // 1 configs
 // 2 models
 // 3 rounters
-//
+// 
 
 const express = require('express');
 console.log('Express loaded from:', require.resolve('express'));
@@ -16,8 +19,11 @@ console.log('Express loaded from:', require.resolve('express'));
 const path= require('path');
 const{sequelize} = require('./models/index.js');
 const {rootRouter} = require('./routers/index.js');
+const fingerprint = require('express-fingerprint');
 
 const app = express();
+
+app.use(fingerprint());
 
 app.use(express.json());
 

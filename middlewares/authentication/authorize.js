@@ -1,5 +1,5 @@
 const authorize = (arrType) => { 
-    (req, res, next) => {
+    return (req, res, next) => {
         const { user } = require('../models/index.js');
         if ((arrType).findIndex(role => role === req.user.type) !== -1) {
             next();

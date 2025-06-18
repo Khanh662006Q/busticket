@@ -7,7 +7,7 @@ const { authorize } = require('../middlewares/authentication/authorize.js');
 
 const stationRouter = express.Router();
 
-stationRouter.post('/', authenticate, authorize["ADMIN"] , createStation);
+stationRouter.post('/', authenticate, authorize(["ADMIN"]) , createStation);
 stationRouter.get('/', getAllStations);
 stationRouter.get('/:id', getStationById);
 stationRouter.put('/:id', checkExist(Station), updateStation);
